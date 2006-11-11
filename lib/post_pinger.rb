@@ -5,15 +5,24 @@ class ArticlePingObserver < ActiveRecord::Observer
 #               "http://ping.syndic8.com/xmlrpc.php",
   ]
 
-  def after_save(article)
+  def after_save( article )
+    ping_all( article )
+  end
+
+  def after_update( article )
+    ping_all( article )
+  end 
+
+
+  private
+  def ping_all(article)
     return unless article.published?
 
     SERVICES.each do |url|
       ping(url, article)
-    end
+    end  
   end
 
-  private
   def ping(url, article)
     # see the weblogs ping spec @ http://www.weblogs.com/api.html
     cli = XMLRPC::Client.new2(url)
