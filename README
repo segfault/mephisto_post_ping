@@ -1,0 +1,25 @@
+weblog ping for Mephisto
+==================================================
+
+Upon posting an article, a ping will be sent
+
+
+Install
+==========
+   ruby script/install svn://hasno.info/mephisto/plugins/mephisto_post_ping
+
+
+Usage
+==========
+   Post an article. The plugin defaults to pinging ping-o-matic (http://pingomatic.com).
+   If you would like to change what sites the plugin pings, do the following:
+
+ArticlePingObserver::SERVICES = [ "http://my.api.site", "http://another.api.site" ]
+
+   you can also append to the services list
+
+ArticlePingObserver::SERVICES << "http://my.ping.site"
+
+
+
+(C) Mark Guzman 2006, under an MIT license.
