@@ -7,18 +7,18 @@ Upon posting an article, a ping will be sent
 Install
 ==========
    ruby script/install svn://hasno.info/mephisto/plugins/mephisto_post_ping
+   Set the akismet url using the admin section. The url will be sent as the
+   base url for your site.
 
 
 Usage
 ==========
    Post an article. The plugin defaults to pinging ping-o-matic (http://pingomatic.com).
-   If you would like to change what sites the plugin pings, do the following:
+   If you would like to change what sites the plugin pings or the ping method, edit lib/config.rb:
 
-ArticlePingObserver::SERVICES = [ "http://my.api.site", "http://another.api.site" ]
+ArticlePingObserver::SERVICES << { :url => "http://my.ping.site", :type => :xmlrpc }
 
-   you can also append to the services list
-
-ArticlePingObserver::SERVICES << "http://my.ping.site"
+ArticlePingObserver::SERVICES << { :url => "http://my.rest.ping.site", :type => :rest }
 
 
 
