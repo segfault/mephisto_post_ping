@@ -60,7 +60,7 @@ class ArticlePingObserver < ActiveRecord::Observer
                   "url" => article.site.akismet_url }
     raw_res = Net::HTTP.post_form( uri, post_info )
 
-    raise Exception.new "http error" unless raw_res.kind_of? Net::HTTPSuccess
+    raise Exception.new("http error") unless raw_res.kind_of? Net::HTTPSuccess
     res = raw_res.body
 
     logger.info "rest ping result => '#{res}'"
@@ -89,3 +89,5 @@ class ArticlePingObserver < ActiveRecord::Observer
   end
 
 end
+
+require 'config'
