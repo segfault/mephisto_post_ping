@@ -1,3 +1,5 @@
+# $Id$
+# Mephisto Post Pinger plugin
 require 'thread'
 require 'net/http'
 require 'uri'
