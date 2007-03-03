@@ -1,8 +1,8 @@
 # $Id$
-module MephistoPlugins
-  class PostPinger < MephistoPlugin
+module Mephisto::Plugins
+  class PostPinger < Mephisto::Plugin
     author 'Mark Guzman'
-    version '$Rev$'.gsub( "Rev: ", "" )
+    version 'r$Rev$'.gsub( /(\$Rev:\s+)|(\s+\$)/, "" )
     notes "Send Weblogs Pings when articles are published"
     homepage "http://hasno.info/2006/11/11/mephisto-plugins"
 
