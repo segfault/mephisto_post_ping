@@ -20,6 +20,9 @@ ArticlePingObserver::SERVICES << { :url => "http://my.ping.site", :type => :xmlr
 
 ArticlePingObserver::SERVICES << { :url => "http://my.rest.ping.site", :type => :rest }
 
+   The plugin can filter based on section or tag, add :section => 'my_section_name' or :tag => 'my_tag_name'
+   to enable it for a specific posting service.
+
 
 
 (C) Mark Guzman 2006, under an MIT license.
