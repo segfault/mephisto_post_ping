@@ -13,8 +13,10 @@ class ArticlePingObserver < ActiveRecord::Observer
     return unless article.published?
 
     SERVICES.each do |sinfo|
-      Thread.new(sinfo, article) do |info, art|
+      next if sinfo[:section] && article.assigned_sections.select { |sec| sec if sec.section.name == sinfo[:section].to_s }.length == 0
+      next if sinfo[:tag] && article.tags(true).select { |tag| true if tag[:name] == sinfo[:tag].to_s }.length == 0
 
+      Thread.new(sinfo, article) do |info, art|
         case info[:type]
         when :rest
           rest_ping( info[:url], art )

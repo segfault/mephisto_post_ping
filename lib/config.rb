@@ -4,3 +4,8 @@ ArticlePingObserver::SERVICES << { :url => "http://rpc.pingomatic.com/", :type =
 #ArticlePingObserver::SERVICES << { :url => "http://localhost:3000/", :type => :xmlrpc }
 #ArticlePingObserver::SERVICES << { :url => "http://rpc.technorati.com/rpc/ping", :type => :xmlrpc }
 ArticlePingObserver::SERVICES << { :url => "http://ping.syndic8.com/xmlrpc.php", :type => :xmlrpc }
+# tag based ping example:
+# ArticlePingObserver::SERVICES << { :url => 'http://a.ruby.tags.only.site', :type => :xmlrpc, :tag => 'ruby' } # this will only be hit when the article is tagged 'ruby'
+
+# section based ping example:
+# ArticlePingObserver::SERVICES << { :url => 'http://a.code.section.only.site', :type => :xmlrpc, :section => 'code' } # only sent if article in section named 'code' 
